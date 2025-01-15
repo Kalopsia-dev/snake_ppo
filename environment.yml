@@ -1,0 +1,10 @@
+name: snake
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - ipykernel=6.29.5
+  - pytorch=2.5.1
+  - pygame=2.6.1
+  - seaborn=0.13.2
+  - imageio=2.36.1
