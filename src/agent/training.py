@@ -12,6 +12,7 @@ import os
 
 class PPOTrainer:
     '''Trainer class for the PPO model.'''
+
     def __init__(self,
         model: ACN,
         ppo_clip_value: float = 0.2,

@@ -21,8 +21,8 @@ class Action(IntEnum):
 
 
 class Direction(IntEnum):
-    '''Directions the snake can face.
-    Integer values represent clockwise rotation.'''
+    '''Directions the snake can face.'''
+    # Member values represent clockwise rotation.
     LEFT  = 0
     UP    = 1
     RIGHT = 2

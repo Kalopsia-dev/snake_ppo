@@ -5,6 +5,7 @@ import torch
 
 class ACN(nn.Module):
     '''Actor Critic model, predicts both policy and value of a given observation.'''
+
     def __init__(self,
         observation_space: int,
         action_space: int,
@@ -37,13 +38,16 @@ class ACN(nn.Module):
             nn.Linear(hidden_size // 2, action_space)
         )
 
+
     def value(self, state) -> torch.Tensor:
         '''Return the value of the given state.'''
         return self.value_stream(self.feature(state)).squeeze()
 
+
     def policy(self, state) -> torch.Tensor:
         '''Return the policy logits for a given state.'''
         return self.policy_stream(self.feature(state))
+
 
     def forward(self, state) -> Tuple[torch.Tensor, torch.Tensor]:
         '''Forward pass through the network. Returns the policy logits and state value.'''
@@ -52,9 +56,11 @@ class ACN(nn.Module):
         # Return the policy logits and state value.
         return self.policy_stream(features), self.value_stream(features).squeeze()
 
+
     def save(self, filename: str) -> None:
         '''Export the model parameters to a file.'''
         torch.save(self.state_dict(), filename)
+
 
     def load(self, filename: str) -> 'ACN':
         '''Load the model parameters from a file.'''

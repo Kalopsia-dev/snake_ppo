@@ -132,10 +132,6 @@ class Snake:
                 self.place_food()
                 self.score += 1
 
-        # If the snake now covers the entire game area, end the game.
-        if np.all(self.state >= State.HEAD):
-            self.done = True
-
 
     def play_step(self, action: Action = Action.FORWARD) -> None:
         '''Play a single step of the game. Return the agent's reward.'''
@@ -165,7 +161,7 @@ class Snake:
         **kwargs,
     ) -> None:
         '''Let a human player control the snake.'''
-        # Create a new game instance and play until the game is over.
+        # Create a new game instance with a GUI accepting user input.
         game = Snake(
             width      = width,
             height     = height,

@@ -71,7 +71,7 @@ def generalised_advantage_estimate(
     with torch.no_grad():
         # First, shift the state values by one step.
         next_values = values.roll(shifts = -1)
-        next_values[-1] = 0 # Terminal state.
+        next_values[-1] = 0 # Last state is terminal.
 
         # Compute temporal differences, then the GAE.
         reward_deltas = rewards + gamma * next_values - values

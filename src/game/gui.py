@@ -65,6 +65,7 @@ class SnakeGUI:
                 case pygame.QUIT:
                     # If the user closes the window, exit the game.
                     self.quit()
+                    return None
                 case pygame.KEYDOWN:
                     if not self.user_input:
                         # If user input is disabled, ignore it.
@@ -127,7 +128,7 @@ class SnakeGUI:
             self.fill(Colour.FOOD, pos, (self.size_food, self.size_food), offset = (0.2, 0.2))
 
         elif index >= State.HEAD:
-            # For snake parts, we must determine the type and orientation. Let's use the descending order of snake parts to our advantage.
+            # For snake parts, we must determine the type and orientation. Let's use the ascending order of snake parts to our advantage.
             head_segment  = 2 * index + 1 #         n + (n+1) = 2n + 1
             inner_segment = 3 * index     # (n-1) + n + (n+1) = 3n
             tail_segment  = 2 * index - 1 # (n-1) + n         = 2n - 1
@@ -215,6 +216,7 @@ class SnakeGUI:
             pygame.draw.line(self.display, Colour.GRID, (x, 0), (x, self.height * self.block_size), self.size_grid)
         for y in range(0, self.height * self.block_size, self.block_size):
             pygame.draw.line(self.display, Colour.GRID, (0, y), (self.width * self.block_size, y), self.size_grid)
+
 
     def __render_state__(self,
         game_state: np.ndarray,

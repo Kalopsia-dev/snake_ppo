@@ -217,14 +217,14 @@ class SnakeEnv:
     ) -> None:
         '''Plot the danger map as a heatmap.'''
         # We don't need to import these libraries unless we're plotting.
-        import seaborn as sns ; sns.set_theme('notebook', style='dark')
-        import matplotlib.pyplot as plt ; plt.style.use("dark_background")
+        import seaborn as sns ; sns.set_theme('notebook', style = 'dark')
+        import matplotlib.pyplot as plt ; plt.style.use('dark_background')
 
         # Generate the danger map and replace the snake's head with a safe value.
         danger_map = self.__map_dangers__()
 
-        plt.figure(figsize=self.game.state.shape if not figsize else figsize)
-        sns.heatmap(danger_map, cmap='hot', square=True, cbar=False, annot=True, fmt=".2f")
+        plt.figure(figsize = self.game.state.shape if not figsize else figsize)
+        sns.heatmap(danger_map, cmap = 'hot', square = True, cbar = False, annot = True, fmt = '.2f')
         plt.title('Danger Map', fontsize = 16)
 
         # Label the axes starting at -1 to account for the game boundaries.
