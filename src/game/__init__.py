@@ -175,8 +175,3 @@ class Snake:
         # Print the final score.
         print(f'Game over! Score: {game.score}')
         game.gui.quit()
-
-
-if __name__ == '__main__':
-    # Run the game with a human player.
-    Snake.play(width = 10, height = 10, fps = 3)
